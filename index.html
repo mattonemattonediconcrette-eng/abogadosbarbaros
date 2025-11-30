@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LAW & ACTION - Abogados en Todo México</title>
+
+<!-- Bootstrap CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+body {
+  background: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero {
+  background: url('https://images.pexels.com/photos/5669601/pexels-photo-5669601.jpeg') center/cover no-repeat;
+  padding: 120px 20px;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.btn-red {
+  background: #d10000;
+  color: white;
+  font-weight: bold;
+}
+.btn-red:hover {
+  background: #a00000;
+}
+
+.category-card {
+  transition: .3s;
+  cursor: pointer;
+}
+.category-card:hover {
+  transform: scale(1.03);
+}
+
+.book-img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.3);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero text-center">
+  <h1 class="display-4 fw-bold">LAW & ACTION</h1>
+  <h3>Abogados expertos en todo México — Atención inmediata 24/7</h3>
+  <button onclick="document.getElementById('temas').scrollIntoView({behavior:'smooth'})" class="btn btn-light mt-4">
+    Ver servicios legales
+  </button>
+</section>
+
+<!-- TEMAS PRINCIPALES -->
+<section id="temas" class="container py-5">
+  <h2 class="fw-bold mb-4 text-center">Servicios Legales Más Solicitados</h2>
+
+  <div class="row g-4">
+
+    <!-- FAMILIAR DETENIDO -->
+    <div class="col-md-4">
+      <div class="card category-card" data-bs-toggle="modal" data-bs-target="#modalFamiliar">
+        <img src="https://images.pexels.com/photos/5669611/pexels-photo-5669611.jpeg" class="card-img-top"/>
+        <div class="card-body text-center">
+          <h5 class="fw-bold text-danger">Familiar detenido – Atención inmediata</h5>
+          <p class="text-muted">Intervención urgente • $1200</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PENAL -->
+    <div class="col-md-4">
+      <div class="card category-card" data-bs-toggle="modal" data-bs-target="#modalPenal">
+        <img src="https://images.pexels.com/photos/5669607/pexels-photo-5669607.jpeg" class="card-img-top"/>
+        <div class="card-body text-center">
+          <h5 class="fw-bold">Problemas con Policía / Penal</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARRENDAMIENTO -->
+    <div class="col-md-4">
+      <div class="card category-card" data-bs-toggle="modal" data-bs-target="#modalArrenda">
+        <img src="https://images.pexels.com/photos/5668863/pexels-photo-5668863.jpeg" class="card-img-top"/>
+        <div class="card-body text-center">
+          <h5 class="fw-bold">Problemas con Arrendatario</h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIBROS DEL MAESTRO -->
+<section class="container py-5">
+  <h2 class="fw-bold text-center mb-4">Libros del Maestro Miguel Ángel de la Torre Barbarino</h2>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <img src="https://images.pexels.com/photos/4861373/pexels-photo-4861373.jpeg" class="book-img"/>
+      <p class="mt-2 text-center fw-semibold">Derecho Penal Moderno</p>
+    </div>
+    <div class="col-md-4">
+      <img src="https://images.pexels.com/photos/4861362/pexels-photo-4861362.jpeg" class="book-img"/>
+      <p class="mt-2 text-center fw-semibold">Argumentación Jurídica Avanzada</p>
+    </div>
+    <div class="col-md-4">
+      <img src="https://images.pexels.com/photos/4861359/pexels-photo-4861359.jpeg" class="book-img"/>
+      <p class="mt-2 text-center fw-semibold">Guía Suprema de Juicios Orales</p>
+    </div>
+  </div>
+</section>
+
+<!-- COSTOS -->
+<section class="container py-5">
+  <h2 class="fw-bold text-center mb-4">Costos</h2>
+  <div class="row text-center g-4">
+
+    <div class="col-md-6">
+      <div class="p-4 bg-white shadow-sm rounded">
+        <h4 class="fw-bold text-danger">Consulta inmediata – $1200</h4>
+        <input type="date" id="fechaConsulta" class="form-control mt-3">
+        <button class="btn btn-red mt-3 w-100" onclick="agendarWhats(1200)">
+          Agendar por WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="p-4 bg-white shadow-sm rounded">
+        <h4 class="fw-bold">Seguimiento semanal – $1000</h4>
+        <input type="date" id="fechaSeguimiento" class="form-control mt-3">
+        <button class="btn btn-dark mt-3 w-100" onclick="agendarWhats(1000)">
+          Agendar por WhatsApp
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODALES (ENCUESTAS POR TEMA) -->
+
+<!-- FAMILIAR DETENIDO -->
+<div class="modal fade" id="modalFamiliar">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <h4 class="fw-bold text-danger">Familiar detenido – Encuesta rápida</h4>
+
+      <label class="mt-3">¿En qué ciudad ocurrió la detención?</label>
+      <select class="form-select" id="ciudadDetenido">
+        <option>CDMX</option><option>Guadalajara</option><option>Monterrey</option>
+        <option>Tijuana</option><option>León</option><option>Otro</option>
+      </select>
+
+      <label class="mt-3">Tipo de detención:</label>
+      <select class="form-select" id="tipoDetencion">
+        <option>Presunto delito</option>
+        <option>Falta administrativa</option>
+        <option>Detención vial</option>
+        <option>Abuso de autoridad</option>
+      </select>
+
+      <label class="mt-3">¿Cuánto tiempo lleva detenido?</label>
+      <select class="form-select" id="tiempoDetenido">
+        <option>Menos de 1 hora</option>
+        <option>1–3 horas</option>
+        <option>Más de 3 horas</option>
+        <option>No sabemos</option>
+      </select>
+
+      <button class="btn btn-red w-100 mt-3" onclick="enviarEncuesta('Familiar detenido')">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<!-- PENAL -->
+<div class="modal fade" id="modalPenal">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <h4 class="fw-bold">Problema penal / Policía – Encuesta rápida</h4>
+
+      <label class="mt-3">Ciudad del incidente</label>
+      <select class="form-select" id="ciudadPenal">
+        <option>CDMX</option><option>Guadalajara</option><option>Monterrey</option><option>Otro</option>
+      </select>
+
+      <label class="mt-3">Conflicto:</label>
+      <select class="form-select" id="conflictoPenal">
+        <option>Abuso policial</option>
+        <option>Detención</option>
+        <option>Amenaza o intimidación</option>
+        <option>Extorsión</option>
+        <option>Otro</option>
+      </select>
+
+      <button class="btn btn-dark w-100 mt-3" onclick="enviarEncuesta('Problema penal')">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ARRENDAMIENTO -->
+<div class="modal fade" id="modalArrenda">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <h4 class="fw-bold">Arrendamiento – Encuesta rápida</h4>
+
+      <label class="mt-3">Ciudad del inmueble</label>
+      <select class="form-select" id="ciudadArrenda">
+        <option>CDMX</option><option>Guadalajara</option><option>Monterrey</option><option>Otro</option>
+      </select>
+
+      <label class="mt-3">Problema principal</label>
+      <select class="form-select" id="problemaArrenda">
+        <option>No pagan renta</option>
+        <option>Quieren desalojarme</option>
+        <option>Incumplimientos</option>
+        <option>Contrato vencido</option>
+      </select>
+
+      <button class="btn btn-primary w-100 mt-3" onclick="enviarEncuesta('Arrendamiento')">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function enviarEncuesta(tipo) {
+  let texto = `Tema: ${tipo}%0A`;
+  
+  if (tipo === "Familiar detenido") {
+    texto += `Ciudad: ${document.getElementById('ciudadDetenido').value}%0A`;
+    texto += `Tipo: ${document.getElementById('tipoDetencion').value}%0A`;
+    texto += `Tiempo detenido: ${document.getElementById('tiempoDetenido').value}`;
+  }
+  if (tipo === "Problema penal") {
+    texto += `Ciudad: ${document.getElementById('ciudadPenal').value}%0A`;
+    texto += `Conflicto: ${document.getElementById('conflictoPenal').value}`;
+  }
+  if (tipo === "Arrendamiento") {
+    texto += `Ciudad: ${document.getElementById('ciudadArrenda').value}%0A`;
+    texto += `Problema: ${document.getElementById('problemaArrenda').value}`;
+  }
+
+  window.open(`https://wa.me/3328164505?text=${texto}`, "_blank");
+}
+
+function agendarWhats(costo) {
+  const fecha = costo === 1200 
+    ? document.getElementById('fechaConsulta').value 
+    : document.getElementById('fechaSeguimiento').value;
+
+  if (!fecha) {
+    alert("Selecciona una fecha para continuar");
+    return;
+  }
+
+  const msg = `Quiero agendar una consulta (${costo} MXN) para la fecha: ${fecha}`;
+  window.open(`https://wa.me/3328164505?text=${encodeURIComponent(msg)}`);
+}
+</script>
+
+</body>
+</html>
