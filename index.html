@@ -1,274 +1,480 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LAW & ACTION - Abogados en Todo México</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LAW & ACTION — Teleconsulta Legal (Premium)</title>
 
-<!-- Bootstrap CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Tailwind (rápido) + Bootstrap para componentes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-body {
-  background: #f4f4f4;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.hero {
-  background: url('https://images.pexels.com/photos/5669601/pexels-photo-5669601.jpeg') center/cover no-repeat;
-  padding: 120px 20px;
-  color: white;
-  text-shadow: 0 0 10px black;
-}
-
-.btn-red {
-  background: #d10000;
-  color: white;
-  font-weight: bold;
-}
-.btn-red:hover {
-  background: #a00000;
-}
-
-.category-card {
-  transition: .3s;
-  cursor: pointer;
-}
-.category-card:hover {
-  transform: scale(1.03);
-}
-
-.book-img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.3);
-}
-</style>
+  <style>
+    :root{--accent:#0f172a;--brand:#0ea5a4}
+    body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    .hero{background-image: linear-gradient(90deg, rgba(2,6,23,0.7), rgba(2,6,23,0.45)), url('https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1600&q=80'); background-size:cover; background-position:center}
+    .card-shadow{box-shadow:0 12px 40px rgba(2,6,23,0.12)}
+    .btn-accent{background:var(--brand);color:white}
+    .btn-accent:hover{opacity:.95}
+    .important{border-left:4px solid #ef4444;padding-left:12px}
+  </style>
 </head>
+<body class="bg-gray-50 text-gray-900">
 
-<body>
+<!-- NAV -->
+<header class="bg-white shadow">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-slate-800 to-slate-600 text-white flex items-center justify-center font-bold">LA</div>
+      <div>
+        <h1 class="text-lg font-semibold">LAW & ACTION</h1>
+        <div class="text-xs text-gray-500">Teleconsulta legal en todo México · Maestro: Miguel A. de la Torre Barbarino</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <a class="text-sm text-gray-700" href="#libros">Libros</a>
+      <a class="text-sm text-gray-700" href="#pagos">Pagos</a>
+      <a class="text-sm text-gray-700" href="#contacto">Contacto</a>
+      <a href="https://wa.me/5213328164505" class="ml-3 inline-flex items-center gap-2 px-3 py-2 rounded-md bg-green-500 text-white"><i class="fa-brands fa-whatsapp"></i> 3328164505</a>
+    </div>
+  </div>
+</header>
 
 <!-- HERO -->
-<section class="hero text-center">
-  <h1 class="display-4 fw-bold">LAW & ACTION</h1>
-  <h3>Abogados expertos en todo México — Atención inmediata 24/7</h3>
-  <button onclick="document.getElementById('temas').scrollIntoView({behavior:'smooth'})" class="btn btn-light mt-4">
-    Ver servicios legales
-  </button>
-</section>
-
-<!-- TEMAS PRINCIPALES -->
-<section id="temas" class="container py-5">
-  <h2 class="fw-bold mb-4 text-center">Servicios Legales Más Solicitados</h2>
-
-  <div class="row g-4">
-
-    <!-- FAMILIAR DETENIDO -->
-    <div class="col-md-4">
-      <div class="card category-card" data-bs-toggle="modal" data-bs-target="#modalFamiliar">
-        <img src="https://images.pexels.com/photos/5669611/pexels-photo-5669611.jpeg" class="card-img-top"/>
-        <div class="card-body text-center">
-          <h5 class="fw-bold text-danger">Familiar detenido – Atención inmediata</h5>
-          <p class="text-muted">Intervención urgente • $1200</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- PENAL -->
-    <div class="col-md-4">
-      <div class="card category-card" data-bs-toggle="modal" data-bs-target="#modalPenal">
-        <img src="https://images.pexels.com/photos/5669607/pexels-photo-5669607.jpeg" class="card-img-top"/>
-        <div class="card-body text-center">
-          <h5 class="fw-bold">Problemas con Policía / Penal</h5>
-        </div>
-      </div>
-    </div>
-
-    <!-- ARRENDAMIENTO -->
-    <div class="col-md-4">
-      <div class="card category-card" data-bs-toggle="modal" data-bs-target="#modalArrenda">
-        <img src="https://images.pexels.com/photos/5668863/pexels-photo-5668863.jpeg" class="card-img-top"/>
-        <div class="card-body text-center">
-          <h5 class="fw-bold">Problemas con Arrendatario</h5>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- LIBROS DEL MAESTRO -->
-<section class="container py-5">
-  <h2 class="fw-bold text-center mb-4">Libros del Maestro Miguel Ángel de la Torre Barbarino</h2>
-
-  <div class="row g-4">
-    <div class="col-md-4">
-      <img src="https://images.pexels.com/photos/4861373/pexels-photo-4861373.jpeg" class="book-img"/>
-      <p class="mt-2 text-center fw-semibold">Derecho Penal Moderno</p>
-    </div>
-    <div class="col-md-4">
-      <img src="https://images.pexels.com/photos/4861362/pexels-photo-4861362.jpeg" class="book-img"/>
-      <p class="mt-2 text-center fw-semibold">Argumentación Jurídica Avanzada</p>
-    </div>
-    <div class="col-md-4">
-      <img src="https://images.pexels.com/photos/4861359/pexels-photo-4861359.jpeg" class="book-img"/>
-      <p class="mt-2 text-center fw-semibold">Guía Suprema de Juicios Orales</p>
+<section class="hero text-white py-28">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-extrabold">LAW & ACTION</h2>
+    <p class="mt-3 text-lg max-w-2xl mx-auto text-gray-100/90">Despacho jurídico premium — Teleconsulta por videollamada en todo México. Atención urgente, seguimiento semanal y representación.</p>
+    <div class="mt-6 flex justify-center gap-3">
+      <a href="#temas" class="px-6 py-3 rounded-md bg-white text-gray-900 font-semibold">Ver especialidades</a>
+      <a href="#pagos" class="px-6 py-3 rounded-md btn-accent font-semibold">Reservar consulta</a>
     </div>
   </div>
 </section>
 
-<!-- COSTOS -->
-<section class="container py-5">
-  <h2 class="fw-bold text-center mb-4">Costos</h2>
-  <div class="row text-center g-4">
+<!-- ESPECIALIDADES -->
+<section id="temas" class="max-w-6xl mx-auto px-6 py-12">
+  <h3 class="text-2xl font-bold mb-4">Especialidades (tocadas con frecuencia)</h3>
+  <div class="grid md:grid-cols-3 gap-6">
+    <!-- Familiar Detenido (rojo) -->
+    <article class="bg-white rounded-xl p-4 card-shadow important cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalFamiliarDetenido">
+      <h4 class="font-bold text-xl text-red-700">Familiar detenido — Atención inmediata</h4>
+      <p class="text-sm text-gray-600 mt-2">Intervención urgente, defensa y acompañamiento. Tarifa de atención inmediata: <strong>$1,200</strong>.</p>
+    </article>
 
-    <div class="col-md-6">
-      <div class="p-4 bg-white shadow-sm rounded">
-        <h4 class="fw-bold text-danger">Consulta inmediata – $1200</h4>
-        <input type="date" id="fechaConsulta" class="form-control mt-3">
-        <button class="btn btn-red mt-3 w-100" onclick="agendarWhats(1200)">
-          Agendar por WhatsApp
-        </button>
-      </div>
-    </div>
+    <article class="bg-white rounded-xl p-4 card-shadow cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalPenal">
+      <h4 class="font-bold text-xl">Penal inmediato</h4>
+      <p class="text-sm text-gray-600 mt-2">Detenciones, abuso de autoridad, denuncias urgentes.</p>
+    </article>
 
-    <div class="col-md-6">
-      <div class="p-4 bg-white shadow-sm rounded">
-        <h4 class="fw-bold">Seguimiento semanal – $1000</h4>
-        <input type="date" id="fechaSeguimiento" class="form-control mt-3">
-        <button class="btn btn-dark mt-3 w-100" onclick="agendarWhats(1000)">
-          Agendar por WhatsApp
-        </button>
-      </div>
-    </div>
+    <article class="bg-white rounded-xl p-4 card-shadow cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalArrenda">
+      <h4 class="font-bold text-xl">Inmobiliario / Arrendamiento</h4>
+      <p class="text-sm text-gray-600 mt-2">Contratos, inquilinos, desalojos y recuperación de inmuebles.</p>
+    </article>
 
+    <article class="bg-white rounded-xl p-4 card-shadow cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalHerencias">
+      <h4 class="font-bold text-xl">Herencias & Sucesiones</h4>
+      <p class="text-sm text-gray-600 mt-2">Testamentos, juicios sucesorios, reparto de bienes.</p>
+    </article>
+
+    <article class="bg-white rounded-xl p-4 card-shadow cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalLaboral">
+      <h4 class="font-bold text-xl">Laboral</h4>
+      <p class="text-sm text-gray-600 mt-2">Despidos, finiquitos y reclamaciones laborales.</p>
+    </article>
+
+    <article class="bg-white rounded-xl p-4 card-shadow cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalMercantil">
+      <h4 class="font-bold text-xl">Mercantil / Deudas</h4>
+      <p class="text-sm text-gray-600 mt-2">Cobranza, convenios y contratos comerciales.</p>
+    </article>
   </div>
 </section>
 
-<!-- MODALES (ENCUESTAS POR TEMA) -->
+<!-- MAESTRO ABOGADO + LIBROS -->
+<section id="libros" class="max-w-6xl mx-auto px-6 py-12">
+  <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-6 rounded-xl card-shadow">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Miguel" class="rounded-xl w-full h-72 object-cover" />
+    <div>
+      <h3 class="text-2xl font-bold">Miguel Ángel de la Torre Barbarino</h3>
+      <p class="text-sm text-gray-700 mt-2">Maestro abogado, escritor y formador con más de <strong>20 años de experiencia</strong> en litigio penal, civil y familiar. Autor de las obras de la casa <em>Law & Action</em>.</p>
+      <a href="#libros-list" class="inline-block mt-4 px-4 py-2 btn-accent rounded-md">Ver libros del autor</a>
+    </div>
+  </div>
 
-<!-- FAMILIAR DETENIDO -->
-<div class="modal fade" id="modalFamiliar">
-  <div class="modal-dialog">
-    <div class="modal-content p-3">
-      <h4 class="fw-bold text-danger">Familiar detenido – Encuesta rápida</h4>
+  <div id="libros-list" class="grid md:grid-cols-4 gap-6 mt-6">
+    <div class="bg-white p-4 rounded-lg card-shadow text-center">
+      <img src="https://images.unsplash.com/photo-4861373/pexels-photo-4861373.jpeg?auto=format&fit=crop&w=400&q=80" class="w-full h-44 object-cover rounded" />
+      <h5 class="mt-3 font-semibold">El Derecho Frente a la Sociedad Moderna</h5>
+    </div>
+    <div class="bg-white p-4 rounded-lg card-shadow text-center">
+      <img src="https://images.unsplash.com/photo-4861362/pexels-photo-4861362.jpeg?auto=format&fit=crop&w=400&q=80" class="w-full h-44 object-cover rounded" />
+      <h5 class="mt-3 font-semibold">Responsabilidad Civil y Justicia</h5>
+    </div>
+    <div class="bg-white p-4 rounded-lg card-shadow text-center">
+      <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80" class="w-full h-44 object-cover rounded" />
+      <h5 class="mt-3 font-semibold">Procedimientos Penales en la Práctica</h5>
+    </div>
+    <div class="bg-white p-4 rounded-lg card-shadow text-center">
+      <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" class="w-full h-44 object-cover rounded" />
+      <h5 class="mt-3 font-semibold">Contratos y Protección Patrimonial</h5>
+    </div>
+  </div>
+</section>
 
-      <label class="mt-3">¿En qué ciudad ocurrió la detención?</label>
-      <select class="form-select" id="ciudadDetenido">
-        <option>CDMX</option><option>Guadalajara</option><option>Monterrey</option>
-        <option>Tijuana</option><option>León</option><option>Otro</option>
-      </select>
+<!-- PAGOS + CALENDARIO -->
+<section id="pagos" class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl card-shadow">
+  <h3 class="text-2xl font-bold mb-4">Pagos y Agenda</h3>
+  <p class="text-sm text-gray-600 mb-6">Elige plan, realiza el pago seguro y agenda tu cita directamente.</p>
 
-      <label class="mt-3">Tipo de detención:</label>
-      <select class="form-select" id="tipoDetencion">
-        <option>Presunto delito</option>
-        <option>Falta administrativa</option>
-        <option>Detención vial</option>
-        <option>Abuso de autoridad</option>
-      </select>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="p-6 border rounded-lg text-center">
+      <h4 class="font-bold">Consulta Express</h4>
+      <p class="text-sm text-gray-600">20 min</p>
+      <p class="text-2xl font-extrabold mt-2">$299</p>
+      <div class="mt-4 flex justify-center gap-2">
+        <button class="btn btn-outline-primary" onclick="openPayment('Consulta Express',299)">Pagar</button>
+        <button class="btn btn-accent text-white" onclick="openPayment('Consulta Express',299,'mp')">MercadoPago</button>
+      </div>
+    </div>
 
-      <label class="mt-3">¿Cuánto tiempo lleva detenido?</label>
-      <select class="form-select" id="tiempoDetenido">
-        <option>Menos de 1 hora</option>
-        <option>1–3 horas</option>
-        <option>Más de 3 horas</option>
-        <option>No sabemos</option>
-      </select>
+    <div class="p-6 border rounded-lg text-center">
+      <h4 class="font-bold">Consulta Completa</h4>
+      <p class="text-sm text-gray-600">45 min + documento</p>
+      <p class="text-2xl font-extrabold mt-2">$499</p>
+      <div class="mt-4 flex justify-center gap-2">
+        <button class="btn btn-outline-primary" onclick="openPayment('Consulta Completa',499)">Pagar</button>
+        <button class="btn btn-accent text-white" onclick="openPayment('Consulta Completa',499,'mp')">MercadoPago</button>
+      </div>
+    </div>
 
-      <button class="btn btn-red w-100 mt-3" onclick="enviarEncuesta('Familiar detenido')">Enviar</button>
+    <div class="p-6 border rounded-lg text-center">
+      <h4 class="font-bold">Seguimiento Semanal</h4>
+      <p class="text-sm text-gray-600">Asesoría semanal</p>
+      <p class="text-2xl font-extrabold mt-2">$1,000</p>
+      <div class="mt-4 flex justify-center gap-2">
+        <button class="btn btn-outline-primary" onclick="openPayment('Seguimiento Semanal',1000)">Pagar</button>
+        <button class="btn btn-accent text-white" onclick="openPayment('Seguimiento Semanal',1000,'mp')">MercadoPago</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment modal (Stripe/MP placeholders) -->
+  <div class="modal fade" id="paymentModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 id="payTitle" class="m-0"></h5>
+          <button class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+        <div id="payBody">
+          <p>Selecciona método de pago:</p>
+          <div class="d-flex gap-3 mb-3">
+            <button class="btn btn-outline-dark" id="stripeBtn">Pagar con tarjeta (Stripe)</button>
+            <button class="btn btn-outline-warning" id="mpBtn">Pagar con MercadoPago</button>
+            <button class="btn btn-outline-info" id="speiBtn">Transferencia SPEI</button>
+          </div>
+
+          <div id="paymentInstructions" class="mt-3">
+            <p class="text-sm text-gray-600">(Instrucciones aparecerán aquí; en producción integrar SDKs de Stripe o MercadoPago y webhooks.)</p>
+          </div>
+
+          <div id="calendarContainer" class="mt-4 d-none">
+            <h6 class="mb-2">Agenda tu horario</h6>
+            <p class="text-sm text-gray-600">Selecciona día y hora en nuestro calendario. (Se usa Calendly o tu calendario preferido)</p>
+            <div style="height:520px;">
+              <iframe id="calendlyFrame" src="https://calendly.com/" style="width:100%;height:100%;border:0;border-radius:8px"></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO / FOOTER -->
+<footer id="contacto" class="max-w-6xl mx-auto px-6 py-8 text-center text-sm text-gray-600">
+  <div class="mb-3">LAW & ACTION — Teleconsulta legal en todo México</div>
+  <div>WhatsApp: <a href="https://wa.me/5213328164505" class="text-blue-600">+52 332 816 4505</a></div>
+  <div class="mt-2">© 2025 Law & Action. Todos los derechos reservados.</div>
+</footer>
+
+<!-- MODALES DETALLADOS POR TEMA (ENCUESTAS PROFESIONALES) -->
+<!-- Familiar Detenido -->
+<div class="modal fade" id="modalFamiliarDetenido" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="mb-3">Familiar detenido — formulario rápido</h5>
+      <form id="formFamiliar">
+  <label class="block mt-3 font-semibold">Nombre completo</label>
+  <input type="text" placeholder="Nombre" class="w-full p-2 border rounded">
+
+  <label class="block mt-3 font-semibold">Edad</label>
+  <input type="number" placeholder="Edad" class="w-full p-2 border rounded">
+
+  <label class="block mt-3 font-semibold">Teléfono</label>
+  <input type="tel" placeholder="Teléfono" class="w-full p-2 border rounded">
+        <label class="form-label">Ciudad</label>
+        <select id="f_ciudad" class="form-select mb-2"><option>Guadalajara</option><option>CDMX</option><option>Monterrey</option><option>León</option><option>Otro</option></select>
+        <label class="form-label">Lugar de detención</label>
+        <input id="f_lugar" class="form-control mb-2" placeholder="Ej. Centro de detención / Calle X" />
+        <label class="form-label">Tiempo detenido</label>
+        <select id="f_tiempo" class="form-select mb-2"><option>Menos de 1 hora</option><option>1-3 horas</option><option>Más de 3 horas</option></select>
+        <label class="form-label">Nombre de la persona detenida (si se conoce)</label>
+        <input id="f_nombre" class="form-control mb-3" placeholder="Nombre completo" />
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-danger w-100" onclick="sendWhatsForm('familiar')">Solicitar atención inmediata ($1,200)</button>
+          <button type="button" class="btn btn-outline-secondary w-100" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
-<!-- PENAL -->
-<div class="modal fade" id="modalPenal">
-  <div class="modal-dialog">
-    <div class="modal-content p-3">
-      <h4 class="fw-bold">Problema penal / Policía – Encuesta rápida</h4>
+<!-- Penal -->
+<div class="modal fade" id="modalPenal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="mb-3">Penal — Datos rápidos</h5>
+      <form id="formPenal">
+  <label class="block mt-3 font-semibold">Nombre completo</label>
+  <input type="text" placeholder="Nombre" class="w-full p-2 border rounded">
 
-      <label class="mt-3">Ciudad del incidente</label>
-      <select class="form-select" id="ciudadPenal">
-        <option>CDMX</option><option>Guadalajara</option><option>Monterrey</option><option>Otro</option>
-      </select>
+  <label class="block mt-3 font-semibold">Edad</label>
+  <input type="number" placeholder="Edad" class="w-full p-2 border rounded">
 
-      <label class="mt-3">Conflicto:</label>
-      <select class="form-select" id="conflictoPenal">
-        <option>Abuso policial</option>
-        <option>Detención</option>
-        <option>Amenaza o intimidación</option>
-        <option>Extorsión</option>
-        <option>Otro</option>
-      </select>
-
-      <button class="btn btn-dark w-100 mt-3" onclick="enviarEncuesta('Problema penal')">Enviar</button>
+  <label class="block mt-3 font-semibold">Teléfono</label>
+  <input type="tel" placeholder="Teléfono" class="w-full p-2 border rounded">
+        <label>Ciudad</label>
+        <select id="p_ciudad" class="form-select mb-2"><option>CDMX</option><option>Guadalajara</option><option>Monterrey</option><option>Otro</option></select>
+        <label>Tipo de incidente</label>
+        <select id="p_tipo" class="form-select mb-2"><option>Detención</option><option>Abuso de autoridad</option><option>Amenaza</option><option>Otro</option></select>
+        <label>Breve descripción</label>
+        <textarea id="p_desc" class="form-control mb-3" rows="3"></textarea>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-dark w-100" onclick="sendWhatsForm('penal')">Enviar y agendar</button>
+          <button type="button" class="btn btn-outline-secondary w-100" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
-<!-- ARRENDAMIENTO -->
-<div class="modal fade" id="modalArrenda">
-  <div class="modal-dialog">
-    <div class="modal-content p-3">
-      <h4 class="fw-bold">Arrendamiento – Encuesta rápida</h4>
+<!-- Arrendamiento -->
+<div class="modal fade" id="modalArrenda" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="mb-3">Arrendamiento — Datos</h5>
+      <form id="formArrenda">
+  <label class="block mt-3 font-semibold">Nombre completo</label>
+  <input type="text" placeholder="Nombre" class="w-full p-2 border rounded">
 
-      <label class="mt-3">Ciudad del inmueble</label>
-      <select class="form-select" id="ciudadArrenda">
-        <option>CDMX</option><option>Guadalajara</option><option>Monterrey</option><option>Otro</option>
-      </select>
+  <label class="block mt-3 font-semibold">Edad</label>
+  <input type="number" placeholder="Edad" class="w-full p-2 border rounded">
 
-      <label class="mt-3">Problema principal</label>
-      <select class="form-select" id="problemaArrenda">
-        <option>No pagan renta</option>
-        <option>Quieren desalojarme</option>
-        <option>Incumplimientos</option>
-        <option>Contrato vencido</option>
-      </select>
-
-      <button class="btn btn-primary w-100 mt-3" onclick="enviarEncuesta('Arrendamiento')">Enviar</button>
+  <label class="block mt-3 font-semibold">Teléfono</label>
+  <input type="tel" placeholder="Teléfono" class="w-full p-2 border rounded">
+        <label>Ciudad</label>
+        <select id="a_ciudad" class="form-select mb-2"><option>Guadalajara</option><option>CDMX</option><option>Monterrey</option><option>Otro</option></select>
+        <label>Problema</label>
+        <select id="a_tipo" class="form-select mb-2"><option>No pagan renta</option><option>Desalojo</option><option>Contrato vencido</option><option>Daños</option></select>
+        <label>Descripción</label>
+        <textarea id="a_desc" class="form-control mb-3" rows="3"></textarea>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-primary w-100" onclick="sendWhatsForm('arrenda')">Enviar</button>
+          <button type="button" class="btn btn-outline-secondary w-100" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Laboral -->
+<div class="modal fade" id="modalLaboral" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="mb-3">Laboral — Datos</h5>
+      <form id="formLaboral">
+  <label class="block mt-3 font-semibold">Nombre completo</label>
+  <input type="text" placeholder="Nombre" class="w-full p-2 border rounded">
 
+  <label class="block mt-3 font-semibold">Edad</label>
+  <input type="number" placeholder="Edad" class="w-full p-2 border rounded">
+
+  <label class="block mt-3 font-semibold">Teléfono</label>
+  <input type="tel" placeholder="Teléfono" class="w-full p-2 border rounded">
+        <label>Ciudad</label>
+        <select id="l_ciudad" class="form-select mb-2"><option>Guadalajara</option><option>CDMX</option><option>Monterrey</option><option>Otro</option></select>
+        <label>Problema laboral</label>
+        <select id="l_tipo" class="form-select mb-2"><option>Despido</option><option>Finiquito</option><option>Acoso</option><option>Otro</option></select>
+        <label>Descripción</label>
+        <textarea id="l_desc" class="form-control mb-3" rows="3"></textarea>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-primary w-100" onclick="sendWhatsForm('laboral')">Enviar</button>
+          <button type="button" class="btn btn-outline-secondary w-100" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Mercantil -->
+<div class="modal fade" id="modalMercantil" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="mb-3">Mercantil — Datos</h5>
+      <form id="formMercantil">
+  <label class="block mt-3 font-semibold">Nombre completo</label>
+  <input type="text" placeholder="Nombre" class="w-full p-2 border rounded">
+
+  <label class="block mt-3 font-semibold">Edad</label>
+  <input type="number" placeholder="Edad" class="w-full p-2 border rounded">
+
+  <label class="block mt-3 font-semibold">Teléfono</label>
+  <input type="tel" placeholder="Teléfono" class="w-full p-2 border rounded">
+        <label>Ciudad</label>
+        <select id="m_ciudad" class="form-select mb-2"><option>Guadalajara</option><option>CDMX</option><option>Monterrey</option><option>Otro</option></select>
+        <label>Tipo</label>
+        <select id="m_tipo" class="form-select mb-2"><option>Deuda</option><option>Contrato</option><option>Cobranza</option><option>Otro</option></select>
+        <label>Descripción</label>
+        <textarea id="m_desc" class="form-control mb-3" rows="3"></textarea>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-primary w-100" onclick="sendWhatsForm('mercantil')">Enviar</button>
+          <button type="button" class="btn btn-outline-secondary w-100" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS: pagos simulados, apertura de calendario y envío a WhatsApp con fecha -->
 <script>
-function enviarEncuesta(tipo) {
-  let texto = `Tema: ${tipo}%0A`;
-  
-  if (tipo === "Familiar detenido") {
-    texto += `Ciudad: ${document.getElementById('ciudadDetenido').value}%0A`;
-    texto += `Tipo: ${document.getElementById('tipoDetencion').value}%0A`;
-    texto += `Tiempo detenido: ${document.getElementById('tiempoDetenido').value}`;
-  }
-  if (tipo === "Problema penal") {
-    texto += `Ciudad: ${document.getElementById('ciudadPenal').value}%0A`;
-    texto += `Conflicto: ${document.getElementById('conflictoPenal').value}`;
-  }
-  if (tipo === "Arrendamiento") {
-    texto += `Ciudad: ${document.getElementById('ciudadArrenda').value}%0A`;
-    texto += `Problema: ${document.getElementById('problemaArrenda').value}`;
+  // Abre modal de pago con detalles
+  function openPayment(plan,price,method){
+    document.getElementById('payTitle').innerText = `${plan} — $${price} MXN`;
+    // reset
+    document.getElementById('calendarContainer').classList.add('d-none');
+
+    // If user asked to pay via MercadoPago directly (provisional link), open it immediately
+    const MP_LINK = 'https://biolibre.mx/remolqueslaperla';
+
+    if(method === 'mp'){
+      // open MercadoPago link in new tab
+      window.open(MP_LINK, '_blank');
+      // show payment modal so user can see calendar after payment (simulated)
+      var payModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+      payModal.show();
+      // show a short instruction
+      document.getElementById('paymentInstructions').innerHTML = `<p class="text-sm text-muted">Se abrió el enlace de pago. Después de completar el pago, selecciona tu horario en el calendario.</p>`;
+      // simulate that payment was confirmed and reveal calendar after short delay
+      setTimeout(()=>{ document.getElementById('calendarContainer').classList.remove('d-none'); }, 1500);
+      return;
+    }
+
+    // show modal (default flow)
+    var payModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+    payModal.show();
+
+    // configure buttons
+    document.getElementById('stripeBtn').onclick = function(){ simulatePayment(plan,price,'stripe'); };
+    document.getElementById('mpBtn').onclick = function(){ simulatePayment(plan,price,'mercadopago'); };
+    document.getElementById('speiBtn').onclick = function(){ simulatePayment(plan,price,'spei'); };
+  } — $${price} MXN`;
+    // reset
+    document.getElementById('calendarContainer').classList.add('d-none');
+    // show modal
+    var payModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+    payModal.show();
+
+    // configure buttons
+    document.getElementById('stripeBtn').onclick = function(){ simulatePayment(plan,price,'stripe'); };
+    document.getElementById('mpBtn').onclick = function(){ simulatePayment(plan,price,'mercadopago'); };
+    document.getElementById('speiBtn').onclick = function(){ simulatePayment(plan,price,'spei'); };
   }
 
-  window.open(`https://wa.me/3328164505?text=${texto}`, "_blank");
-}
+  // Simula pago y muestra calendario (en producción sustituir por integración real)
+  function simulatePayment(plan,price,provider){
+    // mostrar instrucciones de pago
+    const inst = document.getElementById('paymentInstructions');
+    if(provider==='mercadopago'){
+      inst.innerHTML = `<p class=\"text-sm text-muted\">Serás dirigido a MercadoPago. (Simulación) — al confirmar se mostrará el calendario.</p>`;
+    } else if(provider==='stripe'){
+      inst.innerHTML = `<p class=\"text-sm text-muted\">Procesando tarjeta con Stripe (simulado). — al confirmar se mostrará el calendario.</p>`;
+    } else {
+      inst.innerHTML = `<p class=\"text-sm text-muted\">Instrucciones SPEI: transfiere a la cuenta indicada (simulado). — al confirmar se mostrará el calendario.</p>`;
+    }
 
-function agendarWhats(costo) {
-  const fecha = costo === 1200 
-    ? document.getElementById('fechaConsulta').value 
-    : document.getElementById('fechaSeguimiento').value;
-
-  if (!fecha) {
-    alert("Selecciona una fecha para continuar");
-    return;
+    // simula retardo y luego muestra calendario
+    setTimeout(()=>{
+      document.getElementById('calendarContainer').classList.remove('d-none');
+      // opcional: cambiar src del iframe a tu Calendly real
+      // document.getElementById('calendlyFrame').src = 'https://calendly.com/tuusuario/';
+    },1200);
   }
 
-  const msg = `Quiero agendar una consulta (${costo} MXN) para la fecha: ${fecha}`;
-  window.open(`https://wa.me/3328164505?text=${encodeURIComponent(msg)}`);
-}
+  // Envía formularios específicos a WhatsApp junto con fecha sugerida si el usuario la colocó
+  function sendWhatsForm(area){
+    let base = '*LAW & ACTION — Nuevo caso*%0A';
+    let fecha = '';
+    // si el usuario usó el modal de pago y eligió calendario, no lo recogemos aquí; para agendar usamos Calendly
+
+    if(area==='familiar'){
+      const ciudad = document.getElementById('f_ciudad').value;
+      const lugar = document.getElementById('f_lugar').value;
+      const tiempo = document.getElementById('f_tiempo').value;
+      const nombre = document.getElementById('f_nombre').value;
+      base += `Área: Familiar detenido%0ACiudad: ${ciudad}%0ALugar: ${lugar}%0ATiempo: ${tiempo}%0ANombre: ${nombre}%0A`;
+      // mensaje y link whatsapp
+      window.open(`https://wa.me/5213328164505?text=${encodeURIComponent(base)}`,'_blank');
+      return;
+    }
+
+    if(area==='penal'){
+      const ciudad = document.getElementById('p_ciudad').value;
+      const tipo = document.getElementById('p_tipo').value;
+      const desc = document.getElementById('p_desc').value;
+      base += `Área: Penal%0ACiudad: ${ciudad}%0ATipo: ${tipo}%0ADetalle: ${desc}%0A`;
+      window.open(`https://wa.me/5213328164505?text=${encodeURIComponent(base)}`,'_blank');
+      return;
+    }
+
+    if(area==='arrenda'){
+      const ciudad = document.getElementById('a_ciudad').value;
+      const tipo = document.getElementById('a_tipo').value;
+      const desc = document.getElementById('a_desc').value;
+      base += `Área: Arrendamiento%0ACiudad: ${ciudad}%0ATipo: ${tipo}%0ADetalle: ${desc}%0A`;
+      window.open(`https://wa.me/5213328164505?text=${encodeURIComponent(base)}`,'_blank');
+      return;
+    }
+
+    if(area==='laboral'){
+      const ciudad = document.getElementById('l_ciudad').value;
+      const tipo = document.getElementById('l_tipo').value;
+      const desc = document.getElementById('l_desc').value;
+      base += `Área: Laboral%0ACiudad: ${ciudad}%0ATipo: ${tipo}%0ADetalle: ${desc}%0A`;
+      window.open(`https://wa.me/5213328164505?text=${encodeURIComponent(base)}`,'_blank');
+      return;
+    }
+
+    if(area==='mercantil'){
+      const ciudad = document.getElementById('m_ciudad').value;
+      const tipo = document.getElementById('m_tipo').value;
+      const desc = document.getElementById('m_desc').value;
+      base += `Área: Mercantil%0ACiudad: ${ciudad}%0ATipo: ${tipo}%0ADetalle: ${desc}%0A`;
+      window.open(`https://wa.me/5213328164505?text=${encodeURIComponent(base)}`,'_blank');
+      return;
+    }
+  }
+
+  // Agendar rápido desde sección pagos (envía fecha elegida por WhatsApp)
+  function agendarWhatsFromPayments(plan,price){
+    const fecha = prompt('Indica fecha y hora sugerida (ej. 2025-12-01 10:00)');
+    if(!fecha) return alert('No se indicó fecha.');
+    const msg = `Reserva: ${plan} - $${price} MXN%0AFecha solicitada: ${fecha}`;
+    window.open(`https://wa.me/5213328164505?text=${encodeURIComponent(msg)}`,'_blank');
+  }
 </script>
 
 </body>
